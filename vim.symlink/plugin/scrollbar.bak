@@ -1,0 +1,90 @@
+sign define scrollbox texthl=Visual text=/\
+sign define scrollboxbot texthl=Visual text=\/
+sign define scrollboxmid texthl=Visual text=██
+
+fun! ScrollbarGrab()
+	let char=getchar()
+	let col=v:mouse_col
+    if char=="\<leftrelease>" || col!=1
+        return|en
+    while getchar()!="\<leftrelease>"
+        let pos=(v:mouse_lnum-line('w0'))*line('$')/winheight(0)+1
+		
+		let oldscroll=&scrolloff
+		set scrolloff=5000
+		
+        call cursor(pos,1)
+		call UpdateScrollbox()
+		
+		let &scrolloff = oldscroll
+		unlet oldscroll
+    endwhile
+endfun
+
+fun! UpdateScrollbox()
+    sign unplace 789
+    sign unplace 790
+    sign unplace 791
+	if winheight(0)<line('$')
+		if !exists('b:scrollbar_added')
+			let b:scrollbar_added=1
+			exe "sign place 788 line=1".b:scrollexpr
+		en
+		exe "sign place 789 line=".(line('w0')*winheight(0)/line('$')+line('w0')).b:scrollexpr
+		exe "sign place 790 line=".((line('w0')+winheight(0))*winheight(0)/line('$')+line('w0')).b:scrollexprbot
+		exe "sign place 791 line=".((line('w0')+winheight(0)/2)*winheight(0)/line('$')+line('w0')).b:scrollexprmid
+	el
+		if exists('b:scrollbar_added')
+			unlet b:scrollbar_added
+			sign unplace 788
+		en
+	en
+endfun
+
+fun! ToggleScrollbar()
+    if exists('b:opt_scrollbar')
+        unlet b:opt_scrollbar
+		
+		augroup Scrollbar_augroup
+            autocmd!
+        augroup END
+		
+        nun <buffer> <leftmouse>
+        iun <buffer> <leftmouse>
+        nun <buffer> <scrollwheelup>
+        nun <buffer> <scrollwheeldown>
+        iun <buffer> <scrollwheelup>
+        iun <buffer> <scrollwheeldown>
+        exe "sign unplace 791 file=" . expand("%:p")
+        exe "sign unplace 790 file=" . expand("%:p")
+        exe "sign unplace 789 file=" . expand("%:p")
+        exe "sign unplace 788 file=" . expand("%:p")
+    el
+        let b:opt_scrollbar=1
+		
+		augroup Scrollbar_augroup
+			autocmd BufEnter     * :call UpdateScrollbox()
+			autocmd BufWinEnter  * :call UpdateScrollbox()
+			autocmd CursorMoved  * :call UpdateScrollbox()
+			autocmd CursorMovedI * :call UpdateScrollbox()
+			autocmd FocusGained  * :call UpdateScrollbox()
+			autocmd VimResized   * :call UpdateScrollbox()
+		augroup END
+		
+        nno <silent> <buffer> <leftmouse> <leftmouse>:call ScrollbarGrab()<cr>
+        ino <silent> <buffer> <leftmouse> <leftmouse><c-o>:call ScrollbarGrab()<cr>
+        nno <silent> <buffer> <scrollwheelup> <scrollwheelup>:call UpdateScrollbox()<cr>
+        nno <silent> <buffer> <scrollwheeldown> <scrollwheeldown>:call UpdateScrollbox()<cr>
+        ino <silent> <buffer> <scrollwheelup> <scrollwheelup><c-o>:call UpdateScrollbox()<cr>
+        ino <silent> <buffer> <scrollwheeldown> <scrollwheeldown><c-o>: call UpdateScrollbox()<cr>
+        
+		let b:scrollexpr=" name=scrollbox file=".expand("%:p")
+		let b:scrollexprbot=" name=scrollboxbot file=".expand("%:p")
+		let b:scrollexprmid=" name=scrollboxmid file=".expand("%:p")
+		call UpdateScrollbox()
+    en
+endfun
+
+if !exists('b:opt_scrollbar')
+    call ToggleScrollbar()
+endif

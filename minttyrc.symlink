@@ -1,0 +1,13 @@
+BoldAsFont=no
+Transparency=off
+OpaqueWhenFocused=yes
+FontSmoothing=full
+Font=Fantasque Sans Mono
+ClicksPlaceCursor=yes
+FontHeight=12
+ClickTargetMod=shift
+Columns=85
+Rows=24
+ClicksTargetApp=yes
+AllowBlinking=yes
+BoldAsColour=yes
