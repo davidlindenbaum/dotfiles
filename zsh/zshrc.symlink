@@ -2,7 +2,12 @@
 export ZSH=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
+export PROJECTS=~/code
+
+export LANG=$(locale -uU)
+
+DISPLAY=localhost:0.0 ; export DISPLAY
+SMLNJ_CYGWIN_RUNTIME=1 ; export SMLNJ_CYGWIN_RUNTIME
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but

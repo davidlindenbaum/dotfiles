@@ -2,6 +2,9 @@ autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
+# original basic:
+# PROMPT="%{$fg[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%5~%{$reset_color%}$ "
+
 if (( $+commands[git] ))
 then
   git="$commands[git]"

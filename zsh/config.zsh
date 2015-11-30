@@ -10,6 +10,8 @@ export CLICOLOR=true
 fpath=($ZSH/functions $fpath)
 
 autoload -U $ZSH/functions/*(:t)
+autoload -U zmv
+autoload -U zargs
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -33,6 +35,9 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
+setopt autocd extendedglob notify
+unsetopt beep nomatch
+
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
 setopt complete_aliases
@@ -46,3 +51,6 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward

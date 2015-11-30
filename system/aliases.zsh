@@ -1,10 +1,19 @@
-# grc overides for ls
-#   Made possible through contributions from generous benefactors like
-#   `brew install coreutils`
-if $(gls &>/dev/null)
-then
-  alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
-fi
+alias grep='grep --color -InH'                # show differences in colour
+alias egrep='egrep --color=auto'              # show differences in colour
+alias fgrep='fgrep --color=auto'              # show differences in colour
+alias ls='ls -h --color=tty'                  # classify files in colour
+alias la='ls -A'
+alias ll='ls -l'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias open='cygstart'
+
+alias sml='rlwrap -c -f /usr/share/autocomplete sml'
+alias clojure='rlwrap -c java -jar ~/clojure-1.6.0.jar'
+
+alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
+
+alias exip='curl ipecho.net/plain ; echo'
+
+alias runx='run xwin -multiwindow -clipboard'

@@ -4,10 +4,10 @@
 [hub]
         protocol = https
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
+        name = David Lindenbaum
+        email = davidslindenbaum@gmail.com
 [credential]
-        helper = GIT_CREDENTIAL_HELPER
+        helper = cache
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
