@@ -12,3 +12,5 @@ ssh.symlink/known_hosts
 ssh.symlink/authorized_keys
 
 subversion.symlink/auth
+
+vim/vim.symlink/undodir
