@@ -13,4 +13,5 @@ ssh.symlink/authorized_keys
 
 subversion.symlink/auth
 
-vim/vim.symlink/undodir
+vim/vim.symlink/undo.nosrc/
+vim/vim.symlink/plugged/
