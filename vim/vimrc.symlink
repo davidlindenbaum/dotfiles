@@ -148,8 +148,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set tw=80
 
 set ai "Auto indent
@@ -231,6 +231,8 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+map <silent> <leader><Tab> :bnext<CR>
+map <silent> <leader><S-Tab> :bprevious<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -323,7 +325,7 @@ map <leader>s? z=
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
+"map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
@@ -411,6 +413,7 @@ Plug 'mileszs/ack.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'moll/vim-bbye'
 call plug#end()
 
 set showtabline=0
@@ -421,7 +424,7 @@ let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
 let g:airline#extensions#whitespace#long_format = 'lng[%s]'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#buffer_min_count = 0
 let g:airline_section_y = airline#section#create([
       \ '%{fnamemodify(getcwd(), ":h:h:t")}',
       \ '/%{fnamemodify(getcwd(),":h:t")}',
@@ -490,3 +493,6 @@ omap / <Plug>(easymotion-tn)
 " different highlight method and have some other features )
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+:nnoremap <Leader>q :Bdelete<CR>
+
