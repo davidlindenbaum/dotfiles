@@ -6,8 +6,6 @@ alias l='ls -h --color=tty'
 alias ls='ls -h --color=tty'                  # classify files in colour
 alias la='ls -A'
 alias ll='ls -l'
-alias ..='cd ..'
-alias ...='cd ../..'
 
 alias open='cygstart'
 
