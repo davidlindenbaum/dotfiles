@@ -231,8 +231,8 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-map <silent> <leader><Tab> :bnext<CR>
-map <silent> <leader><S-Tab> :bprevious<CR>
+map <silent> ][ :bprevious<CR>
+map <silent> [] :bnext<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -496,3 +496,5 @@ map  N <Plug>(easymotion-prev)
 
 :nnoremap <Leader>q :Bdelete<CR>
 
+let g:SuperTabMappingForward = '<c-@>'
+let g:SuperTabMappingBackward = '<s-tab>'
