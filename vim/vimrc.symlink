@@ -59,11 +59,6 @@ let g:mapleader = ","
 " Fast saving:
 nmap <leader>w :w!<cr>
 
-set undofile                " Maintain undo history between sessions
-set undodir=$HOME/.vim/undo.nosrc
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -133,10 +128,13 @@ set ffs=unix,dos,mac
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
-set nobackup
-set nowb
-set noswapfile
+set undofile                " Maintain undo history between sessions
+set undodir=$HOME/.vim/undo.nosrc
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
 
+:set directory=$HOME/.vim/swapfiles.nosrc//
+:set backupdir=$HOME/.vim/backups.nosrc//
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -178,7 +176,6 @@ map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
-map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -430,6 +427,7 @@ let g:airline_section_y = airline#section#create([
       \ '/%{fnamemodify(getcwd(),":h:t")}',
       \ '/%{fnamemodify(getcwd(), ":t")}'])
 let g:airline_section_z = airline#section#create(['linenr', '/%L:%3c'])
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 0
