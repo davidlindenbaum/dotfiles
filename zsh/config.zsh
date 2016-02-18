@@ -52,3 +52,5 @@ bindkey '^?' backward-delete-char
 
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward

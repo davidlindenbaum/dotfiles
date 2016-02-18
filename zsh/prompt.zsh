@@ -53,8 +53,8 @@ directory_name() {
   echo "%{$fg_bold[cyan]%}%5~%{$reset_color%}"
 }
 
-#export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name)$(git_dirty)$(need_push)› '
-export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name) › '
+export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name)$(git_dirty)$(need_push)› '
+#export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name) › '
 #export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 
 precmd() {
