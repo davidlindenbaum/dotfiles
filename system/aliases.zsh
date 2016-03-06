@@ -17,5 +17,3 @@ alias servethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 alias exip='curl ipecho.net/plain ; echo'
 
 alias runx='run xwin -multiwindow -clipboard'
-
-alias git=hub

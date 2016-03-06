@@ -45,3 +45,7 @@ do
 done
 
 unset config_files
+
+unset PROMPT_CR
+unset PROMPT_SP
+export PROMPT_EOL_MARK=""
