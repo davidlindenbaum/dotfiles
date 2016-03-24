@@ -1,7 +1,17 @@
 "*":
-  welcome:
-    showOnStartup: false
+  "autocomplete-plus": {}
   core:
+    audioBeep: false
+    disabledPackages: [
+      "wrap-guide"
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+      "dev-live-reload"
+      "package-generator"
+      "welcome"
+    ]
+    hideGitIgnoredFiles: true
     ignoredNames: [
       ".bundle"
       ".git"
@@ -10,22 +20,40 @@
       "tmp"
       "vendor"
     ]
-    hideGitIgnoredFiles: true
-    audioBeep: false
-    disabledPackages: [
-      "wrap-guide"
-      "background-tips"
-      "exception-reporting"
-      "metrics"
-    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+  "git-plus": {}
+  "highlight-selected": {}
+  "merge-conflicts": {}
+  minimap:
+    plugins:
+      codeglance: true
+      codeglanceDecorationsZIndex: 0
+      cursorline: true
+      cursorlineDecorationsZIndex: 0
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+      "split-diff": true
+      "split-diffDecorationsZIndex": 0
+    scrollAnimation: true
   "spell-check":
     grammars: [
       "text.plain"
       "source.gfm"
       "text.git-commit"
     ]
-  editor:
-    invisibles: {}
-    showIndentGuide: true
-    softWrapAtPreferredLineLength: true
-  "autocomplete-plus": {}
+  "status-bar": {}
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
+  welcome:
+    showOnStartup: false

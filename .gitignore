@@ -14,3 +14,7 @@ ssh.symlink/authorized_keys
 subversion.symlink/auth
 
 vim/vim.symlink/plugged/
+atom.symlink/nohup.out
+atom.symlink/git-time-machine/
+atom.symlink/blob-store/
+
