@@ -10,6 +10,9 @@
       "dev-live-reload"
       "package-generator"
       "welcome"
+      "update-package-dependencies"
+      "styleguide"
+      "linter-chktex"
     ]
     hideGitIgnoredFiles: true
     ignoredNames: [
@@ -20,12 +23,24 @@
       "tmp"
       "vendor"
     ]
+    packagesWithKeymapsDisabled: [
+      "notifications"
+    ]
   editor:
     invisibles: {}
     showIndentGuide: true
     softWrapAtPreferredLineLength: true
   "git-plus": {}
   "highlight-selected": {}
+  latex:
+    alwaysOpenResultInAtom: true
+    buildOnSave: true
+    builder: "texify"
+  "latex-plus":
+    ghostscriptBin: "/cygdrive/c/texlive/2015/bin/win32"
+    texBin: "/cygdrive/c/texlive/2015/bin/win32"
+    texInputs: "/cygdrive/c/texlive/2015/tlpkg"
+  "linter-chktex": {}
   "merge-conflicts": {}
   minimap:
     plugins:
@@ -44,6 +59,7 @@
       "split-diff": true
       "split-diffDecorationsZIndex": 0
     scrollAnimation: true
+  "pdf-view": {}
   "spell-check":
     grammars: [
       "text.plain"
@@ -51,6 +67,12 @@
       "text.git-commit"
     ]
   "status-bar": {}
+  "sync-settings":
+    _analyticsUserId: "b4e5e1d8-12ee-4791-bbb5-c4fc3e5498f3"
+    _lastBackupHash: "d86180736993785f13f658dd99f7d4c661088c66"
+    gistId: "aae98d6e10c1496c2b03"
+    personalAccessToken: "4218d1406d34358d4f08473c73125e20622c4ff3"
+    quietUpdateCheck: true
   "tree-view":
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
