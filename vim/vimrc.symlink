@@ -129,12 +129,12 @@ set ffs=unix,dos,mac
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set undofile                " Maintain undo history between sessions
-set undodir=$HOME/.vim/undo.nosrc
+set undodir=$HOME/.vim/undo
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-:set directory=$HOME/.vim/swapfiles.nosrc//
-:set backupdir=$HOME/.vim/backups.nosrc//
+:set directory=$HOME/.vim/swapfiles//
+:set backupdir=$HOME/.vim/backups//
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
