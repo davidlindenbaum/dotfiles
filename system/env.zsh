@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR='subl'
 export ANT_HOME='/home/David/bin/apache-ant-1.9.6'
 export PATH=$ANT_HOME/bin:$PATH
 

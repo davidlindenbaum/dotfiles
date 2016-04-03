@@ -11,3 +11,5 @@ alias gb='git branch'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git refresh
 alias gv='git --version'
+
+alias gitedit='e $(git status --porcelain | awk '{print $2}')'
