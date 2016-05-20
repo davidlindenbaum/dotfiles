@@ -33,13 +33,14 @@ gitprompt() {
     fi
 }
 
-if [[ $(uname -o) == "Cygwin" ]]
-then
-    export GIT_PROMPT=1
-else
-    export GIT_PROMPT=0
-fi
-gitprompt
+#if [[ $(uname -o) == "Cygwin" ]]
+#then
+#    export GIT_PROMPT=1
+#else
+#    export GIT_PROMPT=0
+#fi
+#gitprompt
+source $ZSH/.shell_prompt.sh
 
 precmd() {
   title "zsh" "%m" "%55<...<%~"
