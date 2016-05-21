@@ -43,7 +43,7 @@
 	"caret_extra_width": 0,
 	"caret_style": "smooth",
 	"close_windows_when_empty": false,
-	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
 	"copy_with_empty_selection": true,
 	"create_window_at_startup": true,
 	"default_encoding": "UTF-8",
@@ -92,11 +92,12 @@
 		".hg",
 		"CVS"
 	],
+	"font_size": 10,
 	"gpu_window_buffer": "auto",
 	"gutter": true,
 	"highlight_line": false,
 	"highlight_modified_tabs": false,
-	"hot_exit": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Vintage"
@@ -129,6 +130,7 @@
 	"overlay_scroll_bars": "system",
 	"preview_on_click": true,
 	"remember_full_screen": false,
+	"remember_open_files": false,
 	"rulers":
 	[
 		80
@@ -158,5 +160,6 @@
 	"use_tab_stops": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?",
 	"word_wrap": "auto",
-	"wrap_width": 0
+	"wrap_width": 0,
+	"update_check": false
 }

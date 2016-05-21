@@ -4,5 +4,5 @@ export PATH=$ANT_HOME/bin:$PATH
 
 if [[ $(uname -o) == "Cygwin" ]]
 then
-  export JAVA_HOME='/cygdrive/c/Program Files/Java/jdk1.8.0_74'
+  export JAVA_HOME='/cygdrive/c/Program Files/Java/jdk1.8.0_77'
 fi
