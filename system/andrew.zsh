@@ -4,5 +4,5 @@ if [[ $USER == dlindenb ]]; then
   alias simics='env SIMICS_TEXT_CONSOLE="yes" simics46'
   alias simicss='env SIMICS_TEXT_CONSOLE="yes" simics46serial'
 else
-  DISPLAY=localhost:0.0 ; export DISPLAY
+  #DISPLAY=localhost:0.0 ; export DISPLAY
 fi

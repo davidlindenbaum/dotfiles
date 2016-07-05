@@ -1,9 +1,4 @@
 autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
-
-# original basic:
-# PROMPT="%{$fg[green]%}%n@%m%{$reset_color%}:%{$fg_no_bold[blue]%}%5~%{$reset_color%}$ "
 
 if (( $+commands[git] ))
 then
@@ -11,51 +6,41 @@ then
 else
   git="/usr/bin/git"
 fi
+green="%{$fg_bold[green]%}"
+red="%{$fg_bold[red]%}"
+magenta="%{$fg_bold[magenta]%}"
+cyan="%{$fg_bold[cyan]%}"
+reset="%{$reset_color%}"
 
-git_branch() {
-  echo $($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-}
-
-git_dirty() {
-  if $(! $git status -s &> /dev/null)
-  then
-    echo ""
-  else
-    if [[ $($git status --porcelain) == "" ]]
-    then
-      echo " on %{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
-    else
-      echo " on %{$fg_bold[red]%}$(git_prompt_info)%{$reset_color%}"
+git_prompt_info() {
+    ref=$($git symbolic-ref HEAD 2>/dev/null)
+    if [[ $? -eq 0 ]]; then
+        branch=${ref#refs/heads/}
+        dirty=$($git diff --quiet && echo $green || echo $red)
+        ahead_num=$($git rev-list @{u}.. | wc -l)
+        ahead_text="$reset"
+        if [[ $ahead_num > 0 ]] ahead_text="$magenta +$ahead_num$reset"
+        echo " $dirty$branch$ahead_text"
     fi
-  fi
 }
 
-git_prompt_info () {
- ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
- echo "${ref#refs/heads/}"
+gitprompt() {
+    export GIT_PROMPT=$((1-$GIT_PROMPT))
+    if (( $GIT_PROMPT )); then
+        export PROMPT=$'$green%n$reset:$cyan%5~$($git status -b --porcelain 2>/dev/null | parse_git) › '
+    else
+        export PROMPT=$'$green%n$reset:$cyan%5~$reset › '
+    fi
 }
 
-unpushed () {
-  $git cherry -v @{upstream} 2>/dev/null
-}
-
-need_push () {
-  if [[ $(unpushed) == "" ]]
-  then
-    echo " "
-  else
-    echo " with %{$fg_bold[magenta]%}unpushed%{$reset_color%} "
-  fi
-}
-
-directory_name() {
-  echo "%{$fg_bold[cyan]%}%5~%{$reset_color%}"
-}
-
-#export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name)$(git_dirty)$(need_push)› '
-export PROMPT=$'%{$fg[green]%}%n%{$reset_color%}:$(directory_name) › '
-#export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+#if [[ $(uname -o) == "Cygwin" ]]
+#then
+#    export GIT_PROMPT=1
+#else
+#    export GIT_PROMPT=0
+#fi
+#gitprompt
+source $ZSH/.shell_prompt.sh
 
 precmd() {
   title "zsh" "%m" "%55<...<%~"

@@ -6,5 +6,7 @@ zstyle ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
-autoload -Uz compinit
-compinit
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+source /etc/zsh_command_not_found

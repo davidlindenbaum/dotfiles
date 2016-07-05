@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"ColorPicker",
+		"DocBlockr",
+		"EasySettings",
+		"FileDiffs",
+		"Git",
+		"GitGutter",
+		"INI",
+		"Kotlin",
+		"LaTeXing",
+		"Markdown Extended",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"Package Control",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeREPL",
+		"Theme - Afterglow",
+		"Theme - SoDaReloaded",
+		"Trimmer"
+	]
+}

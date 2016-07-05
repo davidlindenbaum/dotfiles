@@ -9,7 +9,7 @@ function cboostg()
 
 dict() {
     # Lookup regex in dict
-    grep --color=always "$@" /usr/share/dict/words | sed 's/:/ /g' | awk '{print $3}'
+    grep --color=always "$@" /usr/share/dict/words
 }
 
 fgrep() {

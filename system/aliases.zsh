@@ -18,4 +18,4 @@ alias exip='curl ipecho.net/plain ; echo'
 
 alias runx='run xwin -multiwindow -clipboard'
 
-alias git=hub
+alias wln='CYGWIN=winsymlinks:nativestrict ln -s'
