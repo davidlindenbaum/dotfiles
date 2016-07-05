@@ -1,3 +1,4 @@
+export ZSH=$HOME/.dotfiles
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 # Use case-insensitive filename globbing
@@ -20,15 +21,28 @@ export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoreboth
 export HISTSIZE=250000
 export HISTFILESIZE=250000
 
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 # Set the Prompt to be more reasonable
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 bind "set completion-ignore-case on"
-
-#source ~/.profile
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 
 PATH="/home/david/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/david/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/david/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/david/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/david/perl5"; export PERL_MM_OPT;
+
+source $ZSH/system/aliases.zsh

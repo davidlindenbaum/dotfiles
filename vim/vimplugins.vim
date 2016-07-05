@@ -14,6 +14,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'moll/vim-bbye'
 Plug 'edkolev/promptline.vim'
+Plug 'gioele/vim-autoswap'
 call plug#end()
 
 set showtabline=0
@@ -47,7 +48,7 @@ let g:gitgutter_eager = 0
 
 let g:rainbow_conf = {
     \   'guifgs': ['royalblue3', 'seagreen3', 'darkorchid3', 'firebrick3'],
-    \   'ctermfgs': ['darkmagenta', 'darkred', 'darkcyan', 'red', 'darkgreen',
+    \   'ctermfgs': ['darkmagenta', 'darkcyan', 'darkred', 'darkgreen', 'red',
     \                'darkblue', 'gray', 'brown']
     \}
 let g:rainbow_active = 1
@@ -85,10 +86,7 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
-:nnoremap <Leader>q :Bdelete<CR>
-
 let g:SuperTabMappingForward = '<c-@>'
-let g:SuperTabMappingBackward = '<s-tab>'
 
 let g:promptline_preset = {
         \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
