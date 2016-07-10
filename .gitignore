@@ -10,6 +10,8 @@ git/gitconfig.symlink
 
 ssh.symlink/known_hosts
 ssh.symlink/authorized_keys
+ssh.symlink/id_rsa
+ssh.symlink/id_rsa.pub
 
 subversion.symlink/auth
 

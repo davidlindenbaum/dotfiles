@@ -162,6 +162,7 @@ map <C-l> <C-W>l
 
 " Close all the buffers
 map <leader>ba :1,1000 bd!<cr>
+map <Leader>q :Bdelete<CR>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -240,7 +241,7 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+nnoremap <silent> <Leader>rtw :%s/\s\+$//e<CR>:nohl<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,6 +307,9 @@ map <leader>pp :setlocal paste!<cr>
 :command W w
 :command Q q
 
+vnoremap <C-c> "*y
+nnoremap <C-c> "*yy
+nnoremap <leader>v "*p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
