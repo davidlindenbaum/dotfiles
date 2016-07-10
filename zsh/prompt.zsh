@@ -40,7 +40,7 @@ gitprompt() {
 #    export GIT_PROMPT=0
 #fi
 #gitprompt
-source $ZSH/.shell_prompt.sh
+source $DOT/.shell_prompt.sh
 
 precmd() {
   title "zsh" "%m" "%55<...<%~"
