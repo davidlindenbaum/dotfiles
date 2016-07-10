@@ -3,6 +3,7 @@ export ZSH=$HOME/.dotfiles
 [[ "$-" != *i* ]] && return
 # Use case-insensitive filename globbing
 shopt -s nocaseglob
+shopt -s globstar
 # Make bash append rather than overwrite the history on disk
 shopt -s histappend
 
