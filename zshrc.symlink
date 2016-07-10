@@ -1,0 +1,71 @@
+# shortcut to this dotfiles path is $DOT
+export DOT=$HOME/.dotfiles
+export ZSH=$DOT/oh-my-zsh
+export ZSH_CUSTOM=$DOT/zsh
+
+export PROJECTS=~/code
+export EDITOR='vim'
+export PATH="$DOT/bin:$HOME/bin:/usr/sbin:$PATH"
+
+export LANG=en_US.UTF-8
+
+unset PROMPT_CR
+unset PROMPT_SP
+export PROMPT_EOL_MARK=""
+
+
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+#ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git command-not-found zsh-autosuggestions zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# *** Old dotfiles sourcing script ****
+#setopt extended_glob
+# all of our zsh files
+#typeset -U config_files
+#config_files=($DOT/{zsh,functions,system}/**/*.zsh)
+
+# load everything but the path and completion files
+#for file in ${${config_files}:#*/completion.zsh}
+#do
+#  source $file
+#done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+#autoload -U compinit
+#compinit
+
+#source $DOT/zsh/completion.zsh
+
+#unset config_files

@@ -33,6 +33,8 @@ filetype indent on
 let mapleader = ","
 let g:mapleader = ","
 
+set clipboard-=autoselect
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,6 +308,7 @@ map <leader>pp :setlocal paste!<cr>
 :command Wq wq
 :command W w
 :command Q q
+cmap w!! w !sudo tee > /dev/null %
 
 vnoremap <C-c> "*y
 nnoremap <C-c> "*yy

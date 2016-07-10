@@ -7,7 +7,7 @@ autoload -U $DOT/functions/*(:t)
 autoload -U zmv
 autoload -U zargs
 
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -36,15 +36,31 @@ setopt complete_aliases
 
 zle -N newtab
 
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"   ]] && bindkey "${key[Up]}"   up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey "${key[Down]}" down-line-or-beginning-search
+
+bindkey "\e[Z" reverse-menu-complete # Shift+Tab
+
+# Edit commands in your $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
 bindkey '^[^[[D' backward-word
 bindkey '^[^[[C' forward-word
 bindkey '^[[5D' beginning-of-line
 bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
-bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
-bindkey '^[OA' history-search-backward
-bindkey '^[OB' history-search-forward
+bindkey "^K" kill-line
+bindkey "^U" kill-whole-line
+
+unset PROMPT_CR
+unset PROMPT_SP
+export PROMPT_EOL_MARK=""
