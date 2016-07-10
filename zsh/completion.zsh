@@ -9,4 +9,7 @@ zstyle ':completion:*' insert-tab pending
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-source /etc/zsh_command_not_found
+if [ -f /etc/zsh_command_not_found ];
+then
+    source /etc/zsh_command_not_found
+fi
