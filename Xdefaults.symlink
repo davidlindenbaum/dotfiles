@@ -53,6 +53,8 @@ URxvt.cursorBlink:          true
 URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 
+URxvt.secondaryWheel:       true
+
 ! Pointer
 URxvt.pointerBlank:         true
 URxvt.cursorUnderline:      false
