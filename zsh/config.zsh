@@ -64,3 +64,5 @@ bindkey "^U" kill-whole-line
 unset PROMPT_CR
 unset PROMPT_SP
 export PROMPT_EOL_MARK=""
+
+stty -ixon
