@@ -312,7 +312,10 @@ cmap w!! w !sudo tee > /dev/null %
 
 vnoremap <C-c> "*y
 nnoremap <C-c> "*yy
-nnoremap <leader>v "*p
+:inoremap <C-c> <C-o>"*yy
+nnoremap <C-v> "*p
+nnoremap <C-v> "*p
+:inoremap <C-v> <C-o>"*p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -357,5 +360,18 @@ let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
+
+
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
+command -nargs=0 -bar Update if &modified
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-s> :<C-u>Update<cr>
+:inoremap <silent> <C-s> <C-o>:Update<cr>
 
 source $DOT/vim/vimplugins.vim
