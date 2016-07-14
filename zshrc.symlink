@@ -9,11 +9,6 @@ export PATH="$DOT/bin:$HOME/bin:/usr/sbin:$PATH"
 
 export LANG=en_US.UTF-8
 
-unset PROMPT_CR
-unset PROMPT_SP
-export PROMPT_EOL_MARK=""
-
-
 if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
