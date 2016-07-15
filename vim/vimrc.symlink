@@ -308,7 +308,8 @@ map <leader>pp :setlocal paste!<cr>
 :command Wq wq
 :command W w
 :command Q q
-cmap w!! w !sudo tee > /dev/null %
+command Ws :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command WS :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 vnoremap <C-c> "*y
 nnoremap <C-c> "*yy
