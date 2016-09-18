@@ -15,6 +15,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'moll/vim-bbye'
 Plug 'edkolev/promptline.vim'
 Plug 'gioele/vim-autoswap'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 set showtabline=0
@@ -94,3 +95,6 @@ let g:promptline_preset = {
         \'c' : [ promptline#slices#cwd({ 'dir_limit': 4 }) ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 "\'y' : [ promptline#slices#vcs_branch() ],
+
+
+nmap <F8> :TagbarToggle<CR>
