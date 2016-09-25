@@ -1,6 +1,8 @@
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+export TERM="xterm-256color"
+
 fpath=($DOT/functions $fpath)
 
 autoload -U $DOT/functions/*(:t)
