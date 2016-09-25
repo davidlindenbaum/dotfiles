@@ -15,6 +15,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'moll/vim-bbye'
 Plug 'edkolev/promptline.vim'
 Plug 'gioele/vim-autoswap'
+Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'}
 call plug#end()
 
 set showtabline=0
