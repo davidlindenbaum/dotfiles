@@ -49,6 +49,7 @@ set wildmode=full
 set wildignore=*.o,*.obj,*.dep,*~,*.pyc
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe
+set wildignorecase
 
 :set wildcharm=<C-Z>
 :map <F4> :emenu <C-Z>
