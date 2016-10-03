@@ -1,12 +1,3 @@
-function cboost()
-{ 
-  g++ "$@" -std=c++11 -L/usr/local/lib/ -lboost_iostreams -lboost_filesystem -lboost_graph -lboost_thread -lboost_system -O3
-}
-function cboostg()
-{ 
-  g++ "$@" -std=c++11 -L/usr/local/lib/ -lboost_iostreams -lboost_filesystem -lboost_graph -lboost_thread -lboost_system -g
-}
-
 dict() {
     # Lookup regex in dict
     grep --color=always "$@" /usr/share/dict/words

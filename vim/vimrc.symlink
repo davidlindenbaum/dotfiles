@@ -51,9 +51,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe
 set wildignorecase
 
-:set wildcharm=<C-Z>
-:map <F4> :emenu <C-Z>
-:source $VIMRUNTIME/menu.vim
+set wildcharm=<C-Z>
+map <F4> :emenu <C-Z>
+source $VIMRUNTIME/menu.vim
 
 set nu
 set noshowmode
@@ -110,8 +110,8 @@ set undodir=$HOME/.vim/undo
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 
-:set directory=$HOME/.vim/swapfiles//
-:set backupdir=$HOME/.vim/backups//
+set directory=$HOME/.vim/swapfiles//
+set backupdir=$HOME/.vim/backups//
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -167,23 +167,6 @@ map <C-l> <C-W>l
 map <leader>ba :1,1000 bd!<cr>
 map <Leader>q :Bdelete<CR>
 
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-map <leader>t<leader> :tabnext
-
-" Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
@@ -230,20 +213,7 @@ set statusline +=\ 0x%B "char under cursor
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+" Remove trailing whitespace
 nnoremap <silent> <Leader>rtw :%s/\s\+$//e<CR>:nohl<CR>
 
 
@@ -293,15 +263,6 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
-" Quickly open a buffer for scribble
-"map <leader>q :e ~/buffer<cr>
-
-" Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
-
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
@@ -357,12 +318,6 @@ function! HasPaste()
     endif
     return ''
 endfunction
-
-"let &t_ti.="\e[1 q"
-"let &t_SI.="\e[5 q"
-"let &t_EI.="\e[1 q"
-"let &t_te.="\e[0 q"
-
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
