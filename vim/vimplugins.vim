@@ -18,6 +18,7 @@ Plug 'gioele/vim-autoswap'
 Plug 'mlr-msft/vim-loves-dafny', {'for': 'dafny'}
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-sleuth'
+Plug 'mhinz/vim-grepper'
 call plug#end()
 
 set showtabline=0
