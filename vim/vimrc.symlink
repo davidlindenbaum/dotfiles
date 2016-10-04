@@ -254,19 +254,19 @@ map <leader>s? z=
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
-command Ws :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command WS :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
+command! Ws :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! WS :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 vnoremap <C-c> "*y
 nnoremap <C-c> "*yy
-:inoremap <C-c> <C-o>"*yy
+inoremap <C-c> <C-o>"*yy
 nnoremap <C-v> "*p
 nnoremap <C-v> "*p
-:inoremap <C-v> <C-o>"*p
+inoremap <C-v> <C-o>"*p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -309,7 +309,7 @@ endfunction
 
 " If the current buffer has never been saved, it will have no name,
 " call the file browser to save it, otherwise just save it.
-command -nargs=0 -bar Update if &modified
+command! -nargs=0 -bar Update if &modified
                            \|    if empty(bufname('%'))
                            \|        browse confirm write
                            \|    else
@@ -317,6 +317,6 @@ command -nargs=0 -bar Update if &modified
                            \|    endif
                            \|endif
 nnoremap <silent> <C-s> :<C-u>Update<cr>
-:inoremap <silent> <C-s> <C-o>:Update<cr>
+inoremap <silent> <C-s> <C-o>:Update<cr>
 
 source $DOT/vim/vimplugins.vim
