@@ -1,4 +1,4 @@
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 bindkey '^ ' autosuggest-accept
 
 # Widgets that accept the entire suggestion

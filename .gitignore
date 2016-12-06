@@ -20,5 +20,6 @@ atom.symlink/nohup.out
 atom.symlink/git-time-machine/
 atom.symlink/blob-store/
 atom.symlink/config.cson
+atom.symlink/split-diff
 
 bin/parse_git
