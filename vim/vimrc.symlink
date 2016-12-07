@@ -131,6 +131,8 @@ set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
 
+match ErrorMsg '\s\+$'
+
 autocmd Syntax c,cpp,vim,xml,html,xhtml,java setlocal foldmethod=syntax
 autocmd Syntax python setlocal foldmethod=indent
 autocmd Syntax c,cpp,vim,xml,html,xhtml,java,python normal zR
@@ -267,6 +269,16 @@ inoremap <C-c> <C-o>"*yy
 nnoremap <C-v> "*p
 nnoremap <C-v> "*p
 inoremap <C-v> <C-o>"*p
+
+nnoremap <C-a> GVgg
+vnoremap <C-a> GVgg
+nnoremap <C-z> u
+vnoremap <C-z> u
+inoremap <C-z> <C-o>u
+nnoremap <C-y> <C-r>
+vnoremap <C-y> <C-r>
+inoremap <C-y> <C-o><C-r>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
