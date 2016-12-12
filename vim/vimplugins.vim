@@ -94,13 +94,12 @@ map  N <Plug>(easymotion-prev)
 
 let g:SuperTabMappingForward = '<c-@>'
 
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd({ 'dir_limit': 4 }) ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
-"\'y' : [ promptline#slices#vcs_branch() ],
-
+"let g:promptline_preset = {
+"        \'a' : [ promptline#slices#host({ 'only_if_ssh': 1 }) ],
+"        \'b' : [ promptline#slices#user() ],
+"        \'c' : [ promptline#slices#cwd({ 'dir_limit': 4 }) ],
+"        \'y' : [ custom_branch_slice ],
+"        \'warn' : [ promptline#slices#last_exit_code() ]}
 
 nmap <F8> :TagbarToggle<CR>
 

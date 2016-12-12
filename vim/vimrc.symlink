@@ -263,12 +263,12 @@ command! Q q
 command! Ws :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! WS :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
-vnoremap <C-c> "*y
-nnoremap <C-c> "*yy
-inoremap <C-c> <C-o>"*yy
-nnoremap <C-v> "*p
-nnoremap <C-v> "*p
-inoremap <C-v> <C-o>"*p
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+inoremap <C-c> <C-o>"+yy
+nnoremap <C-v> "+p
+nnoremap <C-v> "+p
+inoremap <C-v> <C-o>"+p
 
 nnoremap <C-a> GVgg
 vnoremap <C-a> GVgg
