@@ -25,10 +25,12 @@ backup)
     echo "sudoers" >> /var/tmp/ignorelist
     echo "landscape/client.conf" >> /var/tmp/ignorelist
     echo "polkit-1/localauthority" >> /var/tmp/ignorelist
+    echo "ssh_host*" >> /var/tmp/ignorelist
     echo "ssl/private" >> /var/tmp/ignorelist
     echo "sudoers.d" >> /var/tmp/ignorelist
     echo "ufw/user.rules" >> /var/tmp/ignorelist
     echo "ufw/user6.rules" >> /var/tmp/ignorelist
+    echo "ufw/before6.rules" >> /var/tmp/ignorelist
     rsync -adP --exclude-from=/var/tmp/ignorelist /etc/ $DIR/etc/
     ;;
 restore)
