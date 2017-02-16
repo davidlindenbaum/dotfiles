@@ -4,7 +4,14 @@ or just sudo apt-get build-dep vim
 ./configure --with-features=huge --enable-multibyte --enable-rubyinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu --enable-python3interp --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu --enable-perlinterp --enable-luainterp --enable-gui=gtk2 --enable-cscope
 
 urxvt:
-install libgdk-pixbuf2.0-dev libxft-dev
+get source from https://aur.archlinux.org/packages/rxvt-unicode-better-wheel-scrolling/
+windows shortcut: "C:\Program Files\VcXsrv\run.exe" bash ~ -c "DISPLAY=localhost:0 urxvt -e zsh"
+windows vcxsrv shortcut: "C:\Program Files\VcXsrv\vcxsrv.exe" :0 -ac -terminate -lesspointer -multiwindow -clipboard -wgl
+install libgdk-pixbuf2.0-dev libxft-dev libperl-dev
 (important - font won't work unless you configure while libxft-dev and maybe
 some others installed)
 ./configure --enable-xft --enable-unicode3 --disable-utmp --disable-wtmp --disable-lastlog --enable-rxvt-scroll --enable-next-scroll --enable-xterm-scroll --enable-256-color --enable-font-styles --enable-xim --enable-keepscrolling --enable-selectionscrolling --enable-smart-resize --enable-pixbuf --enable-transparency
+for fonts - intstall font in linux by copying into /usr/share/fonts, install
+    xfonts-utils, mkfontdir,
+    mkfontscale, fc-cache -vf
+    Don't need to do anything on windows/x11 server side
