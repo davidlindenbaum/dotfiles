@@ -95,7 +95,8 @@ set showcmd
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
 syntax enable
-colorscheme desert
+"colorscheme desert
+colorscheme apprentice
 set background=dark
 set encoding=utf8
 set ffs=unix,dos,mac

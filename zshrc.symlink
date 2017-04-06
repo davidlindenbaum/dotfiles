@@ -57,6 +57,7 @@ if [[ -a ~/.localrc ]]
 then
   source ~/.localrc
 fi
+compinit
 
 
 # *** Old dotfiles sourcing script ****

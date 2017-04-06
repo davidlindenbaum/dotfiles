@@ -60,12 +60,8 @@ URxvt.pointerBlank:         true
 URxvt.cursorUnderline:      false
 
 !!Source http://github.com/altercation/solarized
-
 *background: #002b36
-!*foreground: #657b83
 *foreground: #83959b
-****************************
-!!*fading: 40
 *fadeColor: #002b36
 *cursorColor: #93a1a1
 *pointerColorBackground: #586e75
@@ -102,5 +98,26 @@ URxvt.cursorUnderline:      false
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3
+
+!*background: #121311
+!*foreground: #b9baa2
+!*fadeColor: #121311
+!*color0: #121311
+!*color1: #fa71b2
+!*color2: #97d996
+!*color3: #d1d895
+!*color4: #93c2f6
+!*color4: #6ca2dd
+!*color5: #c9a1bd
+!*color6: #9bbfb0
+!*color7: #d3cfc5
+!*color8: #262626
+!*color9: #fac3fc
+!*color10: #bddead
+!*color11: #2f3135
+!*color12: #b3c3d6
+!*color13: #b3a9d3
+!*color14: #9fefcf
+!*color15: #edebe6
 
 URxvt.intensityStyles: false

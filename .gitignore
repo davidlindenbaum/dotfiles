@@ -12,6 +12,7 @@ ssh.symlink/known_hosts
 ssh.symlink/authorized_keys
 ssh.symlink/id_rsa
 ssh.symlink/id_rsa.pub
+ssh.symlink/agent.env
 
 subversion.symlink/auth
 
