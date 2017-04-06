@@ -1,0 +1,37 @@
+[core]
+	editor = vim
+	fileMode = false
+[credential]
+	helper = store
+[user]
+	name = David Lindenbaum
+	email = davidslindenbaum@gmail.com
+[push]
+	default = matching
+[color]
+	ui = auto
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
+
+[github]
+	user = davidlindenbaum
+
+[url "https://github.com/"]
+    insteadOf = gh:
+[url "https://gist.github.com/"]
+    insteadOf = gist:
+[merge]
+	tool = meld
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+	#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[alias]
+	d = difftool -d
