@@ -30,7 +30,9 @@ URxvt.iso14755: false
 
 ! Fonts
 URxvt.allow_bold:           true
-URxvt.font: xft:Fantasque Sans Mono:size=14:antialias=false
+!URxvt.font: xft:Fantasque Sans Mono:size=14
+URxvt*font: xft:Fantasque Sans Mono:size=14, \
+            xft:NanumGothic:size=9:bold
 
 ! Scrollbar
 URxvt.scrollStyle:          plain
