@@ -31,3 +31,6 @@ alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git
 alias gv='git --version'
 
 alias r='ranger --choosedir=/tmp/rangerdir; LASTDIR=`cat /tmp/rangerdir`; cd "$LASTDIR"'
+
+alias c='xclip'
+alias v='xclip -o'

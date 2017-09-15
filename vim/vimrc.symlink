@@ -333,3 +333,6 @@ nnoremap <silent> <C-s> :<C-u>Update<cr>
 inoremap <silent> <C-s> <C-o>:Update<cr>
 
 source $DOT/vim/vimplugins.vim
+if filereadable("$DOT/vim/localvimrc.vim")
+  source $DOT/vim/localvimrc.vim
+endif
