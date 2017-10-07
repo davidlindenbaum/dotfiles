@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     sml
      windows-scripts
      vimscript
      markdown
@@ -318,6 +319,10 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; KEYBINDS
+  (spacemacs/set-leader-keys
+    "bq" 'kill-buffer-and-window)
+
   ;; SCROLLING
   (setq mouse-wheel-scroll-amount '(3 ((shift) . 1))) ; one line at a time
   (setq mouse-wheel-progressive-speed nil)            ; don't accelerate scrolling
