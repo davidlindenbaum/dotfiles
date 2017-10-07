@@ -4,8 +4,8 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 
 alias l='ls -h --color=tty'
 alias ls='ls -h --color=tty'                  # classify files in colour
-alias la='ls -A'
-alias ll='ls -l'
+alias la='ls -Ah --color=tty'
+alias ll='ls -lh --color=tty'
 
 alias sml='rlwrap -c -f /usr/share/autocomplete sml'
 alias clojure='rlwrap -c java -jar ~/clojure-1.6.0.jar'
@@ -31,3 +31,6 @@ alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git
 alias gv='git --version'
 
 alias r='ranger --choosedir=/tmp/rangerdir; LASTDIR=`cat /tmp/rangerdir`; cd "$LASTDIR"'
+
+alias c='xclip'
+alias v='xclip -o'

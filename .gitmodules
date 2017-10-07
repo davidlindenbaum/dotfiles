@@ -7,3 +7,9 @@
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/plugins/alias-tips"]
+	path = zsh/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "zsh/plugins/zsh-completions"]
+	path = zsh/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions

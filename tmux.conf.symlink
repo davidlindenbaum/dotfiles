@@ -14,3 +14,5 @@ unbind ^A
 bind ^A select-pane -t :.+
 unbind ^S
 bind ^S last-window
+
+set -g default-terminal "xterm-256color"

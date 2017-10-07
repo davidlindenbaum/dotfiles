@@ -20,6 +20,11 @@ function __promptline_cwd {
   # get first char of the path, i.e. tilde or slash
   [[ -n ${ZSH_VERSION-} ]] && first_char=$cwd[1,1] || first_char=${cwd::1}
 
+  if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
+    cwd="/${match[2]#/}"
+    first_char='//'
+  fi
+
   # remove leading tilde
   cwd="${cwd#\~}"
 
@@ -80,7 +85,9 @@ function custom_git_branch {
     [[ $has_untracked_files -gt 0 ]] && { retval="$retval$leading_whitespace$has_untracked_files_symbol"; leading_whitespace=" "; }
     [[ $is_clean -gt 0 ]]            && { retval="$retval$leading_whitespace$clean_symbol"; leading_whitespace=" "; }
       return
-    fi
+  elif [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
+    retval="${branch_symbol}${match[1]}"
+  fi
   return 1
 }
 function __promptline_ps1 {

@@ -24,3 +24,5 @@ atom.symlink/config.cson
 atom.symlink/split-diff
 
 bin/parse_git
+
+vim/localvimrc.vim
