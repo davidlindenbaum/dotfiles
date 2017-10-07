@@ -46,9 +46,11 @@ function custom_git_branch {
   local branch_symbol=" "
   retval=""
 
+  { [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 } || return
   if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
     branch=${branch##*/}
     retval="${branch_symbol}${branch:-unknown} "
+    [[ $(git rev-parse --is-inside-git-dir) = "true" ]] && return
     local added_symbol="⚫ "
     local unmerged_symbol="✗ "
     local modified_symbol="+"
