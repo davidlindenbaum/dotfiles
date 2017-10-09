@@ -1,0 +1,87 @@
+zmodload zsh/zprof
+# shortcut to this dotfiles path is $DOT
+export DOT=$HOME/.dotfiles
+
+setopt auto_cd
+setopt multios
+setopt prompt_subst
+unsetopt bg_nice
+autoload -U compinit
+compinit
+
+#oh-my-zsh/lib settings
+HYPHEN_INSENSITIVE="true"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# load zgen
+source "${HOME}/.zgen/zgen.zsh"
+
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    zgen load seletskiy/zsh-zgen-compinit-tweak
+    zgen oh-my-zsh
+
+    # plugins
+    zgen oh-my-zsh plugins/adb
+    zgen oh-my-zsh plugins/catimg
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/cp
+    zgen oh-my-zsh plugins/gitfast
+    zgen oh-my-zsh plugins/ssh-agent
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/tmux
+
+    zgen load djui/alias-tips
+    zgen load zsh-users/zsh-autosuggestions
+    zgen load zsh-users/zsh-completions src
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    zgen load $DOT/env.sh
+    zgen load $DOT/zsh
+    zgen load ~/.localrc
+
+    # save all to init script
+    zgen save
+fi
+# kills zgen because of the user-defined signal somehow
+source $DOT/shell_prompt.sh
+
+#zplug version: more versatile and nicer to use, but slower
+#source $HOME/.zplug/init.zsh
+#
+##oh-my-zsh/lib settings
+#HYPHEN_INSENSITIVE="true"
+#COMPLETION_WAITING_DOTS="true"
+#DISABLE_UNTRACKED_FILES_DIRTY="true"
+#
+#zplug "$DOT", from:local, use:"shell_prompt.sh", as:theme
+#zplug "$DOT", from:local, use:"env.sh"
+#zplug "$DOT/zsh", from:local
+#zplug "~/", from:local, use:".localrc", defer:2
+#
+#zplug "plugins/sudo", from:oh-my-zsh
+#zplug "plugins/gitfast", from:oh-my-zsh
+#zplug "plugins/catimg", from:oh-my-zsh
+#zplug "plugins/tmux", from:oh-my-zsh
+#zplug "plugins/adb", from:oh-my-zsh
+#zplug "plugins/command-not-found", from:oh-my-zsh
+#zplug "plugins/ssh-agent", from:oh-my-zsh
+#zplug "plugins/cp", from:oh-my-zsh
+#
+#zplug "robbyrussell/oh-my-zsh", use:"lib/*.zsh"
+#
+#zplug "zsh-users/zsh-autosuggestions"
+#zplug "zsh-users/zsh-completions"
+#zplug "zsh-users/zsh-syntax-highlighting", defer:2
+#zplug "djui/alias-tips"
+#
+#unsetopt BG_NICE
+## Install plugins if there are plugins that have not been installed
+##if ! zplug check --verbose; then
+##    printf "Install? [y/N]: "
+##    if read -q; then
+##        echo; zplug install
+##    fi
+##fi
+#zplug load
