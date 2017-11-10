@@ -4,9 +4,6 @@ export CLICOLOR=true
 [[ "$TERM" == "xterm" ]] && export TERM="xterm-256color"
 [[ "$TERM" == "screen" ]] && export TERM="xterm-256color"
 
-fpath=($DOT/functions $fpath)
-
-autoload -U $DOT/functions/*(:t)
 autoload -U zmv
 autoload -U zargs
 

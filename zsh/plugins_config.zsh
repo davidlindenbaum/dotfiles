@@ -19,8 +19,6 @@ ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
 	vi-forward-blank-word-end
 )
 
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="_"
 
-#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-#ZSH_HIGHLIGHT_STYLES[comment]='fg=8'
-#ZSH_HIGHLIGHT_STYLES[globbing]='none'
-#ZSH_HIGHLIGHT_STYLES[path]='none'
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
