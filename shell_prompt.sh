@@ -46,6 +46,10 @@ function custom_git_branch {
   local branch_symbol=" "
   retval=""
 
+  if [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
+    retval="${branch_symbol}${match[1]}"
+    return
+  fi
   [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1 || return
   if branch=$( { git symbolic-ref --quiet HEAD || git rev-parse --short HEAD; } 2>/dev/null ); then
     branch=${branch##*/}
@@ -87,8 +91,6 @@ function custom_git_branch {
     [[ $has_untracked_files -gt 0 ]] && { retval="$retval$leading_whitespace$has_untracked_files_symbol"; leading_whitespace=" "; }
     [[ $is_clean -gt 0 ]]            && { retval="$retval$leading_whitespace$clean_symbol"; leading_whitespace=" "; }
       return
-  elif [[ $PWD =~ '/google/src/cloud/[^/]+/(.+)/google3(.*)' ]]; then
-    retval="${branch_symbol}${match[1]}"
   fi
   return 1
 }
