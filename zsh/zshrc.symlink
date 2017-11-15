@@ -13,6 +13,7 @@ compinit
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_AUTO_UPDATE="true"
 
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
@@ -22,7 +23,6 @@ if ! zgen saved; then
     zgen load seletskiy/zsh-zgen-compinit-tweak
     zgen oh-my-zsh
 
-    # plugins
     zgen oh-my-zsh plugins/adb
     zgen oh-my-zsh plugins/catimg
     zgen oh-my-zsh plugins/command-not-found
