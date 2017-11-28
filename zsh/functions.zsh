@@ -3,10 +3,6 @@ dict() {
     grep --color=always "$@" /usr/share/dict/words
 }
 
-fgrep() {
-    # returns only unique filenames
-    grep -R "$@" * | sed 's/:/ /g' | awk '{ print $1 }' | sort | uniq
-}
 psgrep() {
     # Find all processes that match, list whole ps line
     if [ ! -z $1 ] ; then
