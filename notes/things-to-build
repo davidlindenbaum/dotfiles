@@ -15,3 +15,7 @@ for fonts - intstall font in linux by copying into /usr/share/fonts, install
     xfonts-utils, mkfontdir,
     mkfontscale, fc-cache -vf
     Don't need to do anything on windows/x11 server side
+
+
+to fix macros not expanding in Xdefaults
+xrdb -merge ~/.Xdefaults

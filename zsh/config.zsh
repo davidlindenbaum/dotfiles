@@ -1,4 +1,6 @@
-export LSCOLORS="exfxcxdxbxegedabagacad"
+if [ -f $HOME/.dircolors ]; then
+    eval `dircolors $HOME/.dircolors`
+fi
 export CLICOLOR=true
 
 [[ "$TERM" == "xterm" ]] && export TERM="xterm-256color"

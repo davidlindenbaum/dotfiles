@@ -1,0 +1,13 @@
+#!/bin/bash
+path=$1
+if ! [[ $path =~ ^(https?://|ftp://|news://|mailto:|file://|www\.).* ]] ;
+then
+    path=$(readlink -f $path)
+    if [[ $path =~ ^/mnt/./.* ]] ;
+    then
+        path=$(echo $path | sed 's/\/mnt\/\(.\)/\1:/1')
+    else
+        path="%LOCALAPPDATA%/lxss$path"
+    fi
+fi
+cmd.exe /C start $path

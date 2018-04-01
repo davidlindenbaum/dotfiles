@@ -42,6 +42,11 @@ if ! zgen saved; then
     zgen load $DOT/zsh
     zgen load ~/.localrc
 
+    zgen clone seebi/dircolors-solarized
+    if [ ! -L $HOME/.dircolors ]; then
+        ln -s $(-zgen-get-clone-dir seebi/dircolors-solarized)/dircolors.256dark $HOME/.dircolors
+    fi
+
     # save all to init script
     zgen save
 fi

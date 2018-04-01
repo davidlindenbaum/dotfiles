@@ -21,6 +21,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/ZoomWin'
 Plug 'ciaranm/detectindent'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 set showtabline=0
@@ -106,3 +107,6 @@ nmap <F8> :TagbarToggle<CR>
 :let g:detectindent_preferred_expandtab = 1
 :let g:detectindent_preferred_indent = 4
 :autocmd BufReadPost * :DetectIndent
+
+set background=dark
+colorscheme solarized
