@@ -252,7 +252,11 @@ function __promptline {
   function async() {
       # save to temp file
       __promptline_right_slow
-      printf "%s" "$retval" > "/dev/shm/zsh_prompt_$$"
+      if [ -d "/dev/shm/" ]; then
+        printf "%s" "$retval" > "/dev/shm/zsh_prompt_$$"
+      else
+        printf "%s" "$retval" > "$TMPDIR/zsh_prompt_$$"
+      fi
       # signal parent
       kill -s USR1 $$
   }
@@ -281,7 +285,11 @@ function __promptline {
 ASYNC_PROC=0
 function TRAPUSR1() {
     # read from temp file
-    read RPROMPTSLOW < "/dev/shm/zsh_prompt_$$"
+    if [ -d "/dev/shm/" ]; then
+      read RPROMPTSLOW < "/dev/shm/zsh_prompt_$$"
+    else
+      read RPROMPTSLOW < "$TMPDIR/zsh_prompt_$$"
+    fi
     if [[ -z $RPROMPTSLOW ]]; then
       NOT_GIT_DIR=$PWD
     fi
